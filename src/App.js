@@ -10,6 +10,8 @@ function App() {
   const [myPics, setMyPics] = useState([]);
   const [displayImages, setDisplay] = useState(false);
   const [displayUsers, setUserDisp] = useState(false);
+  const [updateUser, setUpdateUser] = useState(false);
+  const [deleteUser, setDeleteUser] = useState(false);
 
   const [userList, setUserList] = useState([]);
 
@@ -31,13 +33,18 @@ function App() {
     <div className="App">
       <SignUpOrLogin setter = {setUser}/>
       <br></br>
-      {user ? <h1>{user} logged in</h1> : <h1>not logged in</h1>}
+      {user ? <h1>{user} logged in</h1> : <h1>No user logged in</h1>}
       <br></br>
       {user
         ?
         <div>
           <button onClick={(event) => setDisplay(!displayImages)}>Toggle Images</button>
           <button onClick={(event) => setUserDisp(!displayUsers)}>Toggle Users</button>
+          <br></br>
+          <button onClick={(event) => setUser()}>Sign Out</button>
+          <br></br>
+          <button onClick={(event) => setUpdateUser()}>Update User</button>
+          <button onClick={(event) => setDeleteUser()}>Delete User</button>
         </div>
         :
         <h2>Log in to see buttons</h2>}
