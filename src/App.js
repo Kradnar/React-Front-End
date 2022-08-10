@@ -1,5 +1,7 @@
 import {useState,useEffect} from 'react';
 import SignUpOrLogin from './components/signupOrLogin'
+import getAllUsers from "./utils"
+
 import './App.css';
 
 
@@ -18,10 +20,11 @@ function App() {
   //   console.log(data)
   // }
 
-  // useEffect(()=> {
-  //   fetchPics();
-  //   console.log(myPics)
-  // },[myPics])
+  useEffect(()=> {
+    <getAllUsers />
+    // fetchPics();
+    // console.log(myPics)
+  },[])
 
 
   return (
@@ -30,7 +33,7 @@ function App() {
     <div className="App">
       <SignUpOrLogin setter = {setUser}/>
       <br></br>
-      {{user} ? <h1>{user} logged in</h1> : <h1>not logged in</h1>}
+      {user ? <h1>{user} logged in</h1> : <h1>not logged in</h1>}
       <br></br>
         <button onClick={(event) => setDisplay(!displayImages)}>Toggle Images</button>
         {/* <button onClick={(event) => setDisplay(false)}>Click Me Off</button> */}
