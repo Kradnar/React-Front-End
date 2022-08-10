@@ -18,14 +18,6 @@ return (
     <label>Username:
       <input onChange = {(event) => setUsername(event.target.value)}/>
     </label>
-    {/* <br></br>
-    <label>Firstname:
-      <input onChange = {(event) => setFirstname(event.target.value)}/>
-    </label>
-    <br></br>
-    <label>Lastname:
-      <input onChange = {(event) => setLastname(event.target.value)}/>
-    </label> */}
     <br></br>
     <label>Email:
       <input type="email" onChange = {(event) => setEmail(event.target.value)}/>

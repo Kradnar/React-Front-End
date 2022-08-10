@@ -14,7 +14,7 @@ export const signUp = async (username, email, password, setter) => {
     const data = await response.json();
     // console.log(data.savedUser.userName);
     console.log("Under here")
-    console.log(data.msg.username)
+    console.log(data)
     setter(data.msg.username);
   }
   catch(error)
@@ -23,14 +23,14 @@ export const signUp = async (username, email, password, setter) => {
   }
 }
 
-export const getAllUsers = async () => {
+export const getAllUsers = async (setList) => {
   try {
     const response = await fetch("http://localhost:5000/user", {
       method: "GET",
-      headers: {"Content-Type": "application/json"},
-
     });
     const data = await response.json()
+    setList(data.allUsers)
+    console.log(data)
   } catch (error) {
     console.log(error);
   }

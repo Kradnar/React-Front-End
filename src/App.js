@@ -1,54 +1,65 @@
 import {useState,useEffect} from 'react';
-import SignUpOrLogin from './components/signupOrLogin'
-import getAllUsers from "./utils"
+import SignUpOrLogin from './components/signupOrLogin';
+import {getAllUsers} from './utils/index';
 
 import './App.css';
 
 
 function App() {
-  const [user, setUser] = useState("No User");
-
-
+  const [user, setUser] = useState();
   const [myPics, setMyPics] = useState([]);
   const [displayImages, setDisplay] = useState(false);
- 
+  const [displayUsers, setUserDisp] = useState(false);
 
-  // const fetchPics = async () => {
-  //   const response = await fetch("https://picsum.photos/v2/list");
-  //   const data = await response.json();
-  //   setMyPics(data)   //--- myPics = data
-  //   console.log(data)
-  // }
+  const [userList, setUserList] = useState([]);
+
+  const fetchPics = async () => {
+    const response = await fetch("https://picsum.photos/v2/list");
+    const data = await response.json();
+    setMyPics(data)   //--- myPics = data
+    console.log(data)
+  }
 
   useEffect(()=> {
-    <getAllUsers />
-    // fetchPics();
-    // console.log(myPics)
+    getAllUsers(setUserList);
+
+    fetchPics();
+    console.log(myPics)
   },[])
 
-
   return (
-    // {user} 
-    // ?
     <div className="App">
       <SignUpOrLogin setter = {setUser}/>
       <br></br>
       {user ? <h1>{user} logged in</h1> : <h1>not logged in</h1>}
       <br></br>
-        <button onClick={(event) => setDisplay(!displayImages)}>Toggle Images</button>
+      {user
+        ?
+        <div>
+          <button onClick={(event) => setDisplay(!displayImages)}>Toggle Images</button>
+          <button onClick={(event) => setUserDisp(!displayUsers)}>Toggle Users</button>
+        </div>
+        :
+        <h2>Log in to see buttons</h2>}
         {/* <button onClick={(event) => setDisplay(false)}>Click Me Off</button> */}
-      {displayImages &&
-      myPics.map((item,index) => {
-        return (
-          <div>
-          <h2>{item.author}</h2>
-          <img src={item.download_url} alt="Lorem Picsum" />
-          </div>
-        )
-      })}
+        {displayImages &&
+        myPics.map((item,index) => {
+          return (
+            <div>
+            <h2>{item.author}</h2>
+            <img src={item.download_url} alt="Lorem Picsum" />
+            </div>
+          )
+        })}
+        {displayUsers &&
+        userList.map((item,index) => {
+          return (
+            <div>
+            <h2>{item}</h2>
+            </div>
+          )
+        })}
     </div>
-      // :
-      // console.log("No-one's here")
   );
 }
 
