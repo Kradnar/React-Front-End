@@ -1,6 +1,8 @@
 import {useState,useEffect} from 'react';
 import SignUpOrLogin from './components/signupOrLogin';
 import {getAllUsers} from './utils/index';
+import UpdateUser from './components/DBUpdate';
+import DeleteUser from './components/DBDelete';
 
 import './App.css';
 
@@ -10,8 +12,8 @@ function App() {
   const [myPics, setMyPics] = useState([]);
   const [displayImages, setDisplay] = useState(false);
   const [displayUsers, setUserDisp] = useState(false);
-  const [updateUser, setUpdateUser] = useState(false);
-  const [deleteUser, setDeleteUser] = useState(false);
+  const [updateForm, setUpdateForm] = useState(false);
+  const [deleteForm, setDeleteForm] = useState(false);
 
   const [userList, setUserList] = useState([]);
 
@@ -43,8 +45,13 @@ function App() {
           <br></br>
           <button onClick={(event) => setUser()}>Sign Out</button>
           <br></br>
-          <button onClick={(event) => setUpdateUser()}>Update User</button>
-          <button onClick={(event) => setDeleteUser()}>Delete User</button>
+
+          <button onClick={(event) => setUpdateForm(!updateForm)}>Update User</button>
+          <button onClick={(event) => setDeleteForm(!deleteForm)}>Delete User</button>
+          
+
+          {/* <button onClick={(event) => setUpdateUser(!updateUser)}>Update User</button>
+          <button onClick={(event) => setDeleteUser(!deleteUser)}>Delete User</button> */}
         </div>
         :
         <h2>Log in to see buttons</h2>}
@@ -66,11 +73,35 @@ function App() {
             </div>
           )
         })}
+        {updateForm &&
+          <UpdateUser setter = {setUser}/>
+        }
+        {deleteForm &&
+          <DeleteUser setter = {setUser}/>
+        }
     </div>
   );
 }
 
 export default App;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

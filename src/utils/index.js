@@ -52,3 +52,19 @@ export const getAllUsers = async (setList) => {
     console.log(error);
   }
 }
+
+export const updateU = async (username, password, newUsername, newEmail, newPassword, setter) => {
+  try {
+    console.log("updateU function called")
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export const deleteU = async (username, password, setter) => {
+  try {
+    console.log("deleteU function called")
+  } catch (error) {
+    console.log(error);
+  }
+}
