@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { read, deleteU } from "../utils"
+import { deleteU } from "../utils"
 
 const DeleteUser = ({setter}) => {
   const [username, setUsername] = useState();

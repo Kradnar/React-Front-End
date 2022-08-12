@@ -21,31 +21,42 @@ const SignupOrLogin = ({setter}) => {
 return (
   <div className="SUorLI">
     <form className="SU" onSubmit ={signUpHandler}>
+      <h4>New Users Sign Up here</h4>
       <label>Username:
+        <br></br>
         <input onChange = {(event) => setUsername(event.target.value)}/>
       </label>
       <br></br>
       <label>Email:
+        <br></br>
         <input type="email" onChange = {(event) => setEmail(event.target.value)}/>
       </label>
       <br></br>
       <label>Password:
+        <br></br>
         <input onChange = {(event) => setPassword(event.target.value)}/>
       </label>
       <br></br>
-      <button type="submit">Click here to SignUp and LogIn!</button>
+
+      <button type="submit">Sign Up and LogIn!</button>
     </form>
     <br></br>
     <form className="LI" onSubmit ={logInHandler}>
+      <h4>Existing Users Log In here</h4>
       <label>Username:
+        <br></br>
         <input onChange = {(event) => setUsername(event.target.value)}/>
       </label>
       <br></br>
       <label>Password:
+        <br></br>
         <input onChange = {(event) => setPassword(event.target.value)}/>
       </label>
       <br></br>
-      <button type="submit">Click here to LogIn!</button>
+      <br></br>
+      <button type="submit">Log In!</button>
+      <br></br>
+      <br></br>
     </form>
   </div>
   

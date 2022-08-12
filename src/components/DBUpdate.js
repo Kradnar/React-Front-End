@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { read, updateU } from "../utils"
+import { updateU } from "../utils"
 
 const UpdateUser = ({setter}) => {
   const [username, setUsername] = useState();
