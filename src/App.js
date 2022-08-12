@@ -35,93 +35,61 @@ function App() {
     <div className="App">
       <SignUpOrLogin setter = {setUser}/>
       <br></br>
-      {user ? <h1>{user} logged in</h1> : <h1>No user logged in</h1>}
-      <br></br>
+      <div className='LoggedUser'>
+        {user ? <h1>{user} logged in</h1> : <h1>No user logged in</h1>}
+      </div>
         {user 
         ?
           <div>
             <button onClick={(event) => setUser()}>Sign Out</button>
             <br></br>
             <br></br>
-            <button onClick={(event) => setDisplay(!displayImages)}>Toggle Images</button>
-            <button onClick={(event) => setUserDisp(!displayUsers)}>Toggle Users</button>
             <br></br>
-            <button onClick={(event) => setUpdateForm(!updateForm)}>Update User</button>
-            <button onClick={(event) => setDeleteForm(!deleteForm)}>Delete User</button>
+            <div className='controls'>
+              <button className='ctrlbtn' onClick={(event) => setDisplay(!displayImages)}>Toggle Images</button>
+              <button className='ctrlbtn' onClick={(event) => setUserDisp(!displayUsers)}>Toggle Users</button>
+              <button className='ctrlbtn' onClick={(event) => setUpdateForm(!updateForm)}>Update User</button>
+              <button className='ctrlbtn' onClick={(event) => setDeleteForm(!deleteForm)}>Delete User</button>
+              
+            </div>
           </div>
         :
         <h2>Log in to see Dashboard!</h2>}
-        {/* <button onClick={(event) => setDisplay(false)}>Click Me Off</button> */}
-        {displayImages &&
-        myPics.map((item,index) => {
-          return (
-            <div>
-            <h2>{item.author}</h2>
-            <img src={item.download_url} alt="Lorem Picsum" />
-            </div>
-          )
-        })}
-        {displayUsers &&
-        userList.map((item,index) => {
-          return (
-            <div>
-            <h2>{item}</h2>
-            </div>
-          )
-        })}
-        {updateForm &&
-          <UpdateUser setter = {setUser}/>
-        }
-        {deleteForm &&
-          <DeleteUser setter = {setUser}/>
-        }
+        <div className='hiddenSections'>
+          <div className='dispImages'>
+          {displayImages &&
+          myPics.map((item,index) => {
+            return (
+              <div>
+              <h2>{item.author}</h2>
+              <img src={item.download_url} alt="Lorem Picsum" />
+              </div>
+            )
+          })}
+          </div>
+          <div className='dispUsers'>
+          {displayUsers &&
+          userList.map((item,index) => {
+            return (
+              <div>
+              <h2>{item}</h2>
+              </div>
+            )
+          })}
+          </div>
+          <div className='dispUpdate'>
+          {updateForm &&
+            <UpdateUser setter = {setUser}/>
+          }
+          </div>
+          <div className='dispDelete'>        
+          {deleteForm &&
+            <DeleteUser setter = {setUser}/>
+          }
+          </div>
+        </div>
     </div>
   );
 }
 
 export default App;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  // for (let i = 0; i < myArray.length; i++)
-  // {
-  //   console.log(myArray[i].name);
-  // }
-
-  // myArray.map((item, index) => {
-  //   console.log(item.name, index)
-  // })
-
-
-
-
-
-      {/* <Box personsname={user} age={age} character={character} />
-      <br></br>
-      <input onChange={(event) => changeUser(event.target.value,setTmpUser)} />
-      <br></br>
-      <input onChange={(event) => setAge(event.target.value)} />
-      <br></br>
-      <input onChange={(event) => setCharacter(event.target.value)} />
-      <br></br>
-      <button onClick={(event) => setUser(tmpUser)}>Click Me</button>
-      {user && <Box personsname={user} age={age} character={character}/>} 
-      {user ? <div><Other /><h1>user logged in</h1></div> : <h1>user not logged in </h1>} */}

@@ -1,5 +1,7 @@
-import { useState } from "react"
-import { login, signUp } from "../utils"
+import { useState } from "react";
+import { login, signUp } from "../utils";
+
+import '../App.css';
 
 const SignupOrLogin = ({setter}) => {
   const [username, setUsername] = useState();
@@ -17,8 +19,8 @@ const SignupOrLogin = ({setter}) => {
   }
 
 return (
-  <div>
-    <form onSubmit ={signUpHandler}>
+  <div className="SUorLI">
+    <form className="SU" onSubmit ={signUpHandler}>
       <label>Username:
         <input onChange = {(event) => setUsername(event.target.value)}/>
       </label>
@@ -34,7 +36,7 @@ return (
       <button type="submit">Click here to SignUp and LogIn!</button>
     </form>
     <br></br>
-    <form onSubmit ={logInHandler}>
+    <form className="LI" onSubmit ={logInHandler}>
       <label>Username:
         <input onChange = {(event) => setUsername(event.target.value)}/>
       </label>
