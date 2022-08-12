@@ -15,6 +15,8 @@ const UpdateUser = ({setter}) => {
 
 return (
   <form onSubmit ={updateHandler}>
+    <br></br>
+    <h3>Enter User Credentials to Update</h3>
     <label>Username:
       <input onChange = {(event) => setUsername(event.target.value)}/>
     </label>
@@ -23,8 +25,8 @@ return (
       <input onChange = {(event) => setPassword(event.target.value)}/>
     </label>
     <br></br>
-    <h3>Please only enter one of the following fields</h3>
     <br></br>
+    <h3>Please only enter one of the following fields</h3>
     <label>New Username:
       <input onChange = {(event) => setNewUsername(event.target.value)}/>
     </label>
@@ -37,7 +39,7 @@ return (
       <input onChange = {(event) => setNewPassword(event.target.value)}/>
     </label>
     <br></br>
-    <button type="submit">Click here to SignIn or LogUp!</button>
+    <button type="submit">Click here to Update user!</button>
   </form>
 )
 

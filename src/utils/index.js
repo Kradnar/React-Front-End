@@ -54,8 +54,34 @@ export const getAllUsers = async (setList) => {
 }
 
 export const updateU = async (username, password, newUsername, newEmail, newPassword, setter) => {
+  let params = {
+    "username" : username,
+    "password" : password,
+    "newUsername" : newUsername,
+    "newEmail" : newEmail,
+    "newPassword" : newPassword
+  }
+  console.log(params)
+  Object.keys(params).forEach(key => {
+    if (params[key] === '' || params[key] === null) {
+      delete params[key];
+    }
+  });
+
+  console.log(params)
   try {
     console.log("updateU function called")
+    const response = await fetch("http://localhost:5000/user", {
+      headers: {"Content-Type": "application/json"},
+      method: "PATCH",
+      body: JSON.stringify({
+        params
+      })
+    });
+    console.log(response);
+    const data = await response.json();
+    console.log(data);
+    console.log("updateU function ended")
   } catch (error) {
     console.log(error);
   }
@@ -63,7 +89,17 @@ export const updateU = async (username, password, newUsername, newEmail, newPass
 
 export const deleteU = async (username, password, setter) => {
   try {
-    console.log("deleteU function called")
+    const response = await fetch("http://localhost:5000/user", {
+      headers: {"Content-Type": "application/json"},
+      method: "DELETE",
+      body: JSON.stringify({
+        "username" : username,
+        "password" : password
+      })
+    });
+    const data = await response.json();
+    console.log(data.user);
+    console.log("User Deleted")
   } catch (error) {
     console.log(error);
   }

@@ -37,24 +37,20 @@ function App() {
       <br></br>
       {user ? <h1>{user} logged in</h1> : <h1>No user logged in</h1>}
       <br></br>
-      {user
+        {user 
         ?
-        <div>
-          <button onClick={(event) => setDisplay(!displayImages)}>Toggle Images</button>
-          <button onClick={(event) => setUserDisp(!displayUsers)}>Toggle Users</button>
-          <br></br>
-          <button onClick={(event) => setUser()}>Sign Out</button>
-          <br></br>
-
-          <button onClick={(event) => setUpdateForm(!updateForm)}>Update User</button>
-          <button onClick={(event) => setDeleteForm(!deleteForm)}>Delete User</button>
-          
-
-          {/* <button onClick={(event) => setUpdateUser(!updateUser)}>Update User</button>
-          <button onClick={(event) => setDeleteUser(!deleteUser)}>Delete User</button> */}
-        </div>
+          <div>
+            <button onClick={(event) => setUser()}>Sign Out</button>
+            <br></br>
+            <br></br>
+            <button onClick={(event) => setDisplay(!displayImages)}>Toggle Images</button>
+            <button onClick={(event) => setUserDisp(!displayUsers)}>Toggle Users</button>
+            <br></br>
+            <button onClick={(event) => setUpdateForm(!updateForm)}>Update User</button>
+            <button onClick={(event) => setDeleteForm(!deleteForm)}>Delete User</button>
+          </div>
         :
-        <h2>Log in to see buttons</h2>}
+        <h2>Log in to see Dashboard!</h2>}
         {/* <button onClick={(event) => setDisplay(false)}>Click Me Off</button> */}
         {displayImages &&
         myPics.map((item,index) => {

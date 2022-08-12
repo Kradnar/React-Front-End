@@ -14,6 +14,8 @@ const DeleteUser = ({setter}) => {
 return (
   <div>
     <form onSubmit ={deleteHandler}>
+    <br></br>
+    <h3>Enter credentials of user to delete</h3>      
       <label>Username:
         <input onChange = {(event) => setUsername(event.target.value)}/>
       </label>
