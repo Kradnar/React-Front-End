@@ -74,8 +74,11 @@
   border-width: 5px;
   border-style: double;
   border-color: black;
-  display: flex;
-  justify-content: space-around;
+  /* display: flex;
+  justify-content: space-around; */
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+  padding: 10px;
 }
 
 .dispImages {
@@ -84,6 +87,7 @@
   border-width: 5px;
   border-style: double;
   border-color: blue;
+  
 }
 
 .dispUsers {
@@ -111,5 +115,7 @@
 }
 
 img {
-  width:50vw
+  /* width:50vw; */
+  max-width: 100%;
+  max-height: 100%;
 }

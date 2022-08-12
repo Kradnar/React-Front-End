@@ -18,24 +18,29 @@ return (
     <br></br>
     <h3>Enter User Credentials to Update</h3>
     <label>Username:
+      <br></br>
       <input onChange = {(event) => setUsername(event.target.value)}/>
     </label>
     <br></br>
     <label>Password:
+      <br></br>
       <input onChange = {(event) => setPassword(event.target.value)}/>
     </label>
     <br></br>
     <br></br>
     <h3>Please only enter one of the following fields</h3>
     <label>New Username:
+      <br></br>
       <input onChange = {(event) => setNewUsername(event.target.value)}/>
     </label>
     <br></br>
     <label>New Email:
+      <br></br>
       <input type="email" onChange = {(event) => setNewEmail(event.target.value)}/>
     </label>
     <br></br>
     <label>New Password:
+      <br></br>
       <input onChange = {(event) => setNewPassword(event.target.value)}/>
     </label>
     <br></br>

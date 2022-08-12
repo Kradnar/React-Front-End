@@ -17,10 +17,12 @@ return (
     <br></br>
     <h3>Enter credentials of user to delete</h3>      
       <label>Username:
+        <br></br>
         <input onChange = {(event) => setUsername(event.target.value)}/>
       </label>
       <br></br>
       <label>Password:
+        <br></br>
         <input onChange = {(event) => setPassword(event.target.value)}/>
       </label>
       <br></br>
